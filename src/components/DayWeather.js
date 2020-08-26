@@ -2,7 +2,7 @@ import React from 'react'
 
 function Icon(props){
   const {code, alt} = props
-  const url = `http://openweathermap.org/img/wn/${code}@2x.png`
+  const url = `https://openweathermap.org/img/wn/${code}@2x.png`
   return(
     <img src={url} alt={alt} />
   )

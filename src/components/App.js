@@ -9,7 +9,7 @@ class App extends Component {
       isLoading: true,
       data: {}
     }
-    this.weatherUrl = "http://api.openweathermap.org/data/2.5/forecast?id=3936456&appid=e8009a780395b8de3a5d94aee1ffaba9&units=metric&lang=es"
+    this.weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?id=3936456&appid=e8009a780395b8de3a5d94aee1ffaba9&units=metric&lang=es"
   }
 
   componentDidMount() {
