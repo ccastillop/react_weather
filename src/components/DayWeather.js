@@ -1,28 +1,28 @@
 import React from 'react'
-import {ReactComponent as Cloudy} from '../assets/svg/cloud.svg'
-import {ReactComponent as Snowy} from '../assets/svg/cloud-snow.svg'
-import {ReactComponent as Rainy} from '../assets/svg/cloud-rain.svg'
-import {ReactComponent as Sunny} from '../assets/svg/sun.svg'
 
-const Components = {
-  cloudy: Cloudy,
-  snowy: Snowy,
-  rainy: Rainy,
-  sunny: Sunny
-};
+function Icon(props){
+  const {code, alt} = props
+  const url = `http://openweathermap.org/img/wn/${code}@2x.png`
+  return(
+    <img src={url} alt={alt} />
+  )
+}
 
 function DayWeather(props) {
-  const { name, weather, high, low } = props.day
-  const Icon = Components[weather]
-
+  const { dt, main, weather } = props.weather
+  const {icon, description} = weather[0]
+  const {temp_max, temp_min} = main
+  const day = new Date(dt * 1000)
+  console.log(main)
   return(
-    <div className="mr-2">
-      <h4 className="">
-        {name}
+    <div className="text-center mr-2 mb-4 border p-2">
+      <h4 className="font-bold">
+        {day.toLocaleString("es", { weekday:"short" })}
+        {day.toLocaleString("es", { timeStyle: "short" })}
       </h4>
-      <Icon />
-      <p className="">
-        {high}, {low}
+      <Icon code={icon} alt={description} />
+      <p>
+        {temp_min}ºC, {temp_max}ºC
       </p>
     </div>
   )
